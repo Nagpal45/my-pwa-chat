@@ -1,0 +1,80 @@
+.chatHeader{
+    width: 375px;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px 16px 16px 16px;
+    gap: 16px;
+    border-bottom: 1px solid #E5E5E0;
+}
+
+.top{
+    width: 343px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.back{
+    width: 24px;
+    height: 24px;
+}
+
+.tripInfo{
+    width: 275px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    line-height: 30.12px;
+}
+
+.tripInfo p{
+    font: mulish;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+
+.bottom{
+    width: 343px;
+    height: 48px;
+    gap: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text{
+    width: 307px;
+    height: 48px;
+    gap: 16px;
+    display: flex;
+    flex-direction: row;
+}
+
+.textInfo{
+    width: 215px;
+    height: 46px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.textInfo p{
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.textInfo span{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+
+
+

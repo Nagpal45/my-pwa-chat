@@ -1,0 +1,55 @@
+.chatFooter{
+    width: 375px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chatInput{
+    width: 375px;
+    height: 42px;
+    border-radius: 8px;
+    padding: 11px 12px 11px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.attachIcon {
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .menu {
+    position: absolute;
+    bottom: calc(100% + 15px); 
+    left: 50%;
+    transform: translateX(-50%);
+    background: #008000;
+    box-shadow: 0px -1px 8px 0px #0000000D;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 999;
+    border-radius: 999px;
+    gap: 16px;
+    padding: 12px 16px 12px 16px;
+  }
+  
+  .menu > div {
+    cursor: pointer;
+  }
+  
+  .menu::after {
+    content: "";
+    position: absolute;
+    bottom: -12px;
+    left: calc(50% - 8px);
+    border-width: 7px;
+    border-style: solid;
+    border-color: #008000 transparent transparent transparent;
+  }
+  

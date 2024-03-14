@@ -1,0 +1,34 @@
+.chatMess{
+  display: flex;
+  width: 100%;
+  gap: 8px;
+  padding-left: 16px;
+  justify-content: flex-start;
+}
+
+.myMess{
+  justify-content: flex-end;
+  padding-right: 16px;
+}
+
+.senderImage{
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.bubble {
+    width: 90%;
+    padding: 8px;
+    gap: 16px;
+    border-radius: 12px 12px 0 12px;
+    background: #ffffff;
+    box-shadow: 0px 4px 8px 0px #00000014;
+    font-size: 14px;
+  }
+.myBubble {
+  background: #1C63D5;
+  color: #ffffff;
+  box-shadow: 0px 4px 8px 0px #00000014;
+}
+
