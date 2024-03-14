@@ -1,4 +1,3 @@
-// In your component
 import React, { useState, useEffect } from 'react';
 import './chatHeader.css';
 import { Back, Dots, EditIcon} from '../../images';
