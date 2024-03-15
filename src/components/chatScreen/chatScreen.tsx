@@ -81,7 +81,6 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ initialPage }) => {
 
   return (
     <Box className='chatScreen'>
-      <ChatHeader />
       <Box
         ref={chatContainerRef}
         style={{ maxHeight: 'calc(100vh - 120px)', overflowY: 'auto' }}
@@ -103,7 +102,7 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ initialPage }) => {
           ))}
         </VStack>
       </Box>
-      <ChatFooter/>
+      
     </Box>
   );
 };
