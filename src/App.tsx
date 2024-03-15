@@ -6,7 +6,9 @@ import './App.css'
 const App: React.FC = () => {
   return (
     <ChakraProvider>
+      <ChatHeader />
       <ChatScreen initialPage={0}/>
+      <ChatFooter/>
     </ChakraProvider>
   );
 };
