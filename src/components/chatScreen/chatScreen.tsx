@@ -19,11 +19,13 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ initialPage }) => {
     const fetchInitialMessages = async () => {
       const initialMessages = await fetchChatMessages(initialPage);
       setMessages(initialMessages.reverse()); 
-      if (chatContainerRef.current) {
-      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight ;
-    }
     };
     fetchInitialMessages();
+    setTimeout(()=>{
+      if (chatContainerRef.current) {
+        chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight ;
+      }
+    },500)
   }, [initialPage]);
 
   const isToday = (date: Date) => {
