@@ -11,21 +11,9 @@ interface ChatScreenProps {
 
 const ChatScreen: React.FC<ChatScreenProps> = ({ initialPage }) => {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
-  // const [page, setPage] = useState(initialPage);
-  // const [loading, setLoading] = useState(false);
   const chatContainerRef = useRef<HTMLDivElement>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
-
-  // const loadMoreMessages = async () => {
-  //   setLoading(true);
-  //   const newMessages = await fetchChatMessages(page + 1);
-  //   setMessages((prevMessages) => [...prevMessages, ...newMessages]);
-  //   setPage((prevPage) => prevPage + 1);
-  //   setLoading(false);
-  //   if (chatContainerRef.current) {
-  //     chatContainerRef.current.scrollTop = 375;
-  //   }
-  // };
 
   useEffect(() => {
     const fetchInitialMessages = async () => {
@@ -45,7 +33,7 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ initialPage }) => {
            date.getFullYear() === today.getFullYear();
   };
 
-  // Function to format the date in the desired format
+  
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     if (isToday(date)) {
@@ -54,34 +42,27 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ initialPage }) => {
       return date.toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' });
     }
   }
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     if (
-  //       chatContainerRef.current &&
-  //       chatContainerRef.current.scrollTop <= 500 && 
-  //       chatContainerRef.current.scrollTop !== 0 && 
-  //       !loading
-  //     ) {
-  //       loadMoreMessages();
-  //     }
-  //   };
 
-  //   if (chatContainerRef.current) {
-  //     chatContainerRef.current.addEventListener('scroll', handleScroll);
-  //   }
-
-  //   return () => {
-  //     if (chatContainerRef.current) {
-  //       chatContainerRef.current.removeEventListener('scroll', handleScroll);
-  //     }
-  //   };
-  // }, [loading]);
+  const handleScroll = async (event: React.UIEvent<HTMLDivElement>) => {
+    const { scrollTop } = event.currentTarget;
+    if (scrollTop <= 200 && !isLoading) {
+      setIsLoading(true);
+      const olderMessages = await fetchChatMessages(initialPage + 1); 
+      setMessages([...olderMessages.reverse(), ...messages]);
+      setIsLoading(false);
+      if (chatContainerRef.current) {
+        chatContainerRef.current.scrollTop =  200;
+      }
+    }
+    
+  };
 
   return (
     <Box className='chatScreen'>
       <Box
         ref={chatContainerRef}
         style={{ maxHeight: 'calc(100vh - 120px)', overflowY: 'auto' }}
+        onScroll={handleScroll}
       >
         <VStack spacing={4} alignItems="flex-start" paddingBottom="16px">
           {messages.map((message, index) => (
