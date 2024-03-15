@@ -1,11 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Box, Divider, Text, VStack } from "@chakra-ui/react";
 import { fetchChatMessages } from "../../services/chatService";
-import ChatHeader from "../chatHeader/chatHeader";
 import ChatBubble from "../chatBubble/chatBubble";
 import { ChatMessage } from "types";
 import "./chatScreen.css";
-import ChatFooter from "../chatFooter/chatFooter";
 
 interface ChatScreenProps {
   initialPage: number;
@@ -34,7 +32,7 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ initialPage }) => {
       const initialMessages = await fetchChatMessages(initialPage);
       setMessages(initialMessages.reverse()); 
       if (chatContainerRef.current) {
-      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight ;
     }
     };
     fetchInitialMessages();
